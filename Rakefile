@@ -46,7 +46,7 @@ PKG_FILES = FileList[
 ]
 
 begin
-  require 'rake/gempackagetask'
+  require 'rubygems/package_task'
   Spec = Gem::Specification.new do |s|
     s.name = "rcodetools"
     s.version = RCT_VERSION + PKG_REVISION
@@ -95,7 +95,7 @@ EOF
   end
 
   task :gem
-  Rake::GemPackageTask.new(Spec) do |p|
+  Gem::PackageTask.new(Spec) do |p|
     p.need_tar_gz = true
   end
 
